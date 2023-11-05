@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form onsubmit="updateTracker()">
+        <label>Today's goal</label>
+        <input type="int" id="goal">
+        <label>Written today</label>
+        <input type="int" id="progress" onchange="updateTracker()">
+    </form>
+    <div id="tracker"></div>
+
+    <script>
+        function updateTracker() {
+            let goal = document.getElementById("goal").value
+            let progress = document.getElementById("progress").value
+            let tracker = document.getElementById("tracker")
+            tracker.innerHTML=`<label for="writing">Today's writing progress:</label>
+            <progress id="writing" max=${goal} value=${progress}></progress>`
+        }
+    </script>
+</body>
+</html>
